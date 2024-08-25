@@ -38,19 +38,54 @@ body{
     font-size: 18px;
 }
 
-.search button{
-    border: none;
+button {
     outline: none;
-    background-color: #ebfffc;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
     cursor: pointer;
-}
-.search .fa-magnifying-glass{
+    border: none;
+    width : 60px;
+    height : 60px;
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #FABC3F;
+    color: #0096b4;
+   }
+   
+   button span {
+    position: relative;
+    z-index: 10;
     font-size: 18px;
-    color: #696969;
-}
+    transition: color 0.4s;
+   }
+   
+   button:hover span {
+    color: white;
+   }
+   
+   button::before,
+   button::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+   button::before {
+    content: "";
+    background: #ffff;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+   }
+   
+   button:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
+   
 /* -----------Weather-Details----------- */
 .weather{
     display: none;
